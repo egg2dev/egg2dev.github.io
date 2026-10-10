@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TDashCam for Tesla</title>
+<meta name="description" content="Tesla dashcam viewer with driving data overlay · 테슬라 블랙박스 뷰어 · iPhone, iPad, Android">
+<meta property="og:title" content="TDashCam for Tesla">
+<meta property="og:description" content="Tesla dashcam viewer with driving data overlay · 테슬라 블랙박스 뷰어">
+<meta property="og:type" content="website">
+<style>
+  :root { --bg:#f6f7f9; --card:#fff; --fg:#14181f; --sub:#5b6472; --btn:#14181f; --btnfg:#fff; --line:#e3e6eb; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#0e1116; --card:#171b22; --fg:#f2f4f7; --sub:#98a2b3; --btn:#f2f4f7; --btnfg:#14181f; --line:#262c36; } }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; padding:16px; background:var(--bg); color:var(--fg);
+         font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
+  main { width:100%; max-width:420px; background:var(--card); border:1px solid var(--line); border-radius:20px; padding:32px 24px; text-align:center; }
+  h1 { margin:0 0 8px; font-size:24px; }
+  p { margin:0 0 24px; color:var(--sub); }
+  a.btn { display:block; margin:0 0 12px; padding:14px 16px; border-radius:12px; background:var(--btn); color:var(--btnfg); text-decoration:none; font-weight:600; }
+  small { display:block; margin-top:20px; color:var(--sub); font-size:12px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>TDashCam for Tesla</h1>
+  <p id="desc">테슬라 블랙박스 영상을 주행 정보와 함께 보고, 시각과 주행 정보를 영상에 새겨 저장하세요.</p>
+  <a class="btn" id="ios" href="https://apps.apple.com/app/id6818066975">App Store (iPhone · iPad)</a>
+  <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.eggdev.tesladashcampro">Google Play (Android)</a>
+  <small id="note">Tesla, Inc.와 관계없는 독립 앱입니다.</small>
+</main>
+<script>
+(function () {
+  var ua = navigator.userAgent || "";
+  // iPadOS는 Mac처럼 보이므로 터치 지점 수로 구분한다
+  var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+  var isAndroid = /Android/.test(ua);
+  if (isIOS) { location.replace(document.getElementById("ios").href); return; }
+  if (isAndroid) { location.replace(document.getElementById("android").href); return; }
+  var lang = (navigator.language || "").toLowerCase();
+  if (lang.indexOf("ko") !== 0) {
+    document.documentElement.lang = "en";
+    document.getElementById("desc").textContent = "View Tesla dashcam clips together with driving data, and save videos with the time and driving data burned in.";
+    document.getElementById("note").textContent = "Independent app, not affiliated with Tesla, Inc.";
+  }
+})();
+</script>
+<noscript><style>main{display:block}</style></noscript>
+</body>
+</html>
