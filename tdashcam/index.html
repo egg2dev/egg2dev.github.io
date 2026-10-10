@@ -110,8 +110,15 @@
   // iPadOS는 Mac처럼 보이므로 터치 지점 수로 구분한다
   var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
   var isAndroid = /Android/.test(ua);
-  if (isIOS) { location.replace(document.getElementById("ios").href); return; }
-  if (isAndroid) { location.replace(document.getElementById("android").href); return; }
+  var go = /[?&]go=1(&|$)/.test(location.search);
+  // 기본은 본문을 보여 주고, 주소 뒤에 ?go=1을 붙이면 기기에 맞는 스토어로 바로 이동한다
+  if (go && isIOS) { location.replace(document.getElementById("ios").href); return; }
+  if (go && isAndroid) { location.replace(document.getElementById("android").href); return; }
+  // 휴대폰에서는 해당 스토어 버튼만 남긴다
+  if (isIOS || isAndroid) {
+    var hide = isIOS ? ["android", "android2"] : ["ios", "ios2"];
+    for (var h = 0; h < hide.length; h++) document.getElementById(hide[h]).style.display = "none";
+  }
   var lang = (navigator.language || "").toLowerCase();
   if (lang.indexOf("ko") !== 0) {
     document.documentElement.lang = "en";
