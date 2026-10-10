@@ -15,9 +15,11 @@
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; }
   body { margin:0; background:var(--bg); color:var(--fg);
-         font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR",sans-serif; }
+         font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI","Apple SD Gothic Neo","Noto Sans KR","Hiragino Sans","PingFang SC","PingFang TC",sans-serif; }
   .wrap { max-width:960px; margin:0 auto; padding:0 16px; }
-  header.hero { text-align:center; padding:56px 0 40px; }
+  .langbar { display:flex; justify-content:flex-end; padding-top:14px; }
+  .langbar select { font:inherit; font-size:14px; color:var(--fg); background:var(--card); border:1px solid var(--line); border-radius:10px; padding:6px 10px; }
+  header.hero { text-align:center; padding:32px 0 40px; }
   header.hero h1 { margin:0 0 10px; font-size:clamp(28px,6vw,40px); letter-spacing:-.02em; }
   header.hero p { margin:0 auto 28px; max-width:560px; color:var(--sub); font-size:18px; }
   .btns { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
@@ -44,49 +46,62 @@
 </head>
 <body>
 <div class="wrap">
+  <div class="langbar">
+    <select id="lang" aria-label="Language">
+      <option value="ko">한국어</option>
+      <option value="en">English</option>
+      <option value="de">Deutsch</option>
+      <option value="es">Español</option>
+      <option value="fr">Français</option>
+      <option value="ja">日本語</option>
+      <option value="pt">Português</option>
+      <option value="zh-Hans">简体中文</option>
+      <option value="zh-Hant">繁體中文</option>
+    </select>
+  </div>
+
   <header class="hero">
     <h1>TDashCam for Tesla</h1>
-    <p data-ko="테슬라 블랙박스 영상을 속도·기어·조향 같은 주행 정보와 함께 보고, 시각과 주행 정보를 영상에 새겨 저장하세요. 6개 카메라를 한 화면에서."
-       data-en="Watch Tesla dashcam clips together with speed, gear and steering data, and save videos with the time and driving data burned in. All 6 cameras on one screen.">테슬라 블랙박스 영상을 속도·기어·조향 같은 주행 정보와 함께 보고, 시각과 주행 정보를 영상에 새겨 저장하세요. 6개 카메라를 한 화면에서.</p>
+    <p data-i18n="desc">테슬라 블랙박스 영상을 속도·기어·조향 같은 주행 정보와 함께 보고, 시각과 주행 정보를 영상에 새겨 저장하세요. 6개 카메라를 한 화면에서.</p>
     <div class="btns">
       <a class="btn" id="ios" href="https://apps.apple.com/app/id6818066975">App Store (iPhone · iPad)</a>
       <a class="btn" id="android" href="https://play.google.com/store/apps/details?id=com.eggdev.tesladashcampro">Google Play (Android)</a>
     </div>
-    <div class="free" data-ko="무료 · 광고 제거는 한 번 결제로" data-en="Free · one-time purchase removes ads">무료 · 광고 제거는 한 번 결제로</div>
+    <div class="free" data-i18n="free">무료 · 광고 제거는 한 번 결제로</div>
   </header>
 
   <section>
-    <h2 data-ko="화면 미리보기" data-en="Screenshots">화면 미리보기</h2>
+    <h2 data-i18n="shots">화면 미리보기</h2>
     <div class="gallery">
-      <figure class="shot"><img loading="lazy" src="img/iphone-01-viewer.jpg" alt="뷰어 화면"><figcaption data-ko="뷰어 · 주행 정보" data-en="Viewer · driving data">뷰어 · 주행 정보</figcaption></figure>
-      <figure class="shot"><img loading="lazy" src="img/iphone-03-map.jpg" alt="경로 지도"><figcaption data-ko="경로 지도" data-en="Route map">경로 지도</figcaption></figure>
-      <figure class="shot wide"><img loading="lazy" src="img/iphone-02-grid.jpg" alt="6캠 격자"><figcaption data-ko="6캠 동시 보기" data-en="6-camera grid">6캠 동시 보기</figcaption></figure>
-      <figure class="shot wide"><img loading="lazy" src="img/iphone-04-fullscreen.jpg" alt="가로 전체화면"><figcaption data-ko="가로 전체화면" data-en="Landscape fullscreen">가로 전체화면</figcaption></figure>
-      <figure class="shot"><img loading="lazy" src="img/iphone-05-encode.jpg" alt="인코딩 설정"><figcaption data-ko="타임스탬프 인코딩" data-en="Timestamp encoding">타임스탬프 인코딩</figcaption></figure>
-      <figure class="shot wide"><img loading="lazy" src="img/ipad-02-viewer-landscape.jpg" alt="iPad 분할 화면"><figcaption data-ko="iPad 분할 화면" data-en="iPad split view">iPad 분할 화면</figcaption></figure>
+      <figure class="shot"><img loading="lazy" src="img/iphone-01-viewer.jpg" alt=""><figcaption data-i18n="c_viewer">뷰어 · 주행 정보</figcaption></figure>
+      <figure class="shot"><img loading="lazy" src="img/iphone-03-map.jpg" alt=""><figcaption data-i18n="c_map">경로 지도</figcaption></figure>
+      <figure class="shot wide"><img loading="lazy" src="img/iphone-02-grid.jpg" alt=""><figcaption data-i18n="c_grid">6캠 동시 보기</figcaption></figure>
+      <figure class="shot wide"><img loading="lazy" src="img/iphone-04-fullscreen.jpg" alt=""><figcaption data-i18n="c_full">가로 전체화면</figcaption></figure>
+      <figure class="shot"><img loading="lazy" src="img/iphone-05-encode.jpg" alt=""><figcaption data-i18n="c_enc">타임스탬프 인코딩</figcaption></figure>
+      <figure class="shot wide"><img loading="lazy" src="img/ipad-02-viewer-landscape.jpg" alt=""><figcaption data-i18n="c_ipad">iPad 분할 화면</figcaption></figure>
     </div>
   </section>
 
   <section>
-    <h2 data-ko="주요 기능" data-en="Features">주요 기능</h2>
+    <h2 data-i18n="feats">주요 기능</h2>
     <div class="grid">
-      <div class="card"><h3 data-ko="시각·주행 정보 영상 저장" data-en="Save with time and driving data">시각·주행 정보 영상 저장</h3><p data-ko="촬영 시각과 속도·기어·조향각·방향지시등 등을 영상에 새겨 새 영상으로 저장하고 바로 공유합니다." data-en="Burn the capture time, speed, gear, steering angle and turn signals into a new video, ready to share.">촬영 시각과 속도·기어·조향각·방향지시등 등을 영상에 새겨 새 영상으로 저장하고 바로 공유합니다.</p></div>
-      <div class="card"><h3 data-ko="멀티 카메라 뷰어" data-en="Multi-camera viewer">멀티 카메라 뷰어</h3><p data-ko="전방·후방·좌우 리피터·필러 카메라를 빠르게 전환하고, 시간대 탭으로 원하는 순간으로 이동합니다." data-en="Switch between front, rear, repeater and pillar cameras, and jump to any moment with time tabs.">전방·후방·좌우 리피터·필러 카메라를 빠르게 전환하고, 시간대 탭으로 원하는 순간으로 이동합니다.</p></div>
-      <div class="card"><h3 data-ko="주행 정보(SEI) 표시" data-en="Driving data (SEI)">주행 정보(SEI) 표시</h3><p data-ko="기어·속도·브레이크·가속·방향지시등·조향각·오토파일럿 상태를 영상과 동기화해 보여 줍니다." data-en="Gear, speed, brake, accelerator, turn signals, steering angle and Autopilot, in sync with the video.">기어·속도·브레이크·가속·방향지시등·조향각·오토파일럿 상태를 영상과 동기화해 보여 줍니다.</p></div>
-      <div class="card"><h3 data-ko="경로 지도" data-en="Route map">경로 지도</h3><p data-ko="영상의 위치 정보로 주행 경로를 지도에 그리고, 재생에 맞춰 현재 위치가 움직입니다." data-en="Draws the driving route on a map from the video's location data, following playback.">영상의 위치 정보로 주행 경로를 지도에 그리고, 재생에 맞춰 현재 위치가 움직입니다.</p></div>
-      <div class="card"><h3 data-ko="6캠 격자 · 전체화면" data-en="6-camera grid · fullscreen">6캠 격자 · 전체화면</h3><p data-ko="최대 6개 카메라를 동시에 재생하고, 가로 전체화면에서는 지도와 주행 정보를 작은 창으로 띄웁니다. iPad는 분할 화면을 지원합니다." data-en="Play up to 6 cameras at once; in landscape fullscreen the map and data float in small panels. iPad has a split layout.">최대 6개 카메라를 동시에 재생하고, 가로 전체화면에서는 지도와 주행 정보를 작은 창으로 띄웁니다. iPad는 분할 화면을 지원합니다.</p></div>
-      <div class="card"><h3 data-ko="내 기기 안에서만 처리" data-en="Processed on your device">내 기기 안에서만 처리</h3><p data-ko="영상과 위치 정보는 기기 안에서만 처리되며 서버로 전송되지 않습니다." data-en="Videos and location data are processed on your device only and never uploaded.">영상과 위치 정보는 기기 안에서만 처리되며 서버로 전송되지 않습니다.</p></div>
+      <div class="card"><h3 data-i18n="f1t">시각·주행 정보 영상 저장</h3><p data-i18n="f1d">촬영 시각과 속도·기어·조향각·방향지시등 등을 영상에 새겨 새 영상으로 저장하고 바로 공유합니다.</p></div>
+      <div class="card"><h3 data-i18n="f2t">멀티 카메라 뷰어</h3><p data-i18n="f2d">전방·후방·좌우 리피터·필러 카메라를 빠르게 전환하고, 시간대 탭으로 원하는 순간으로 이동합니다.</p></div>
+      <div class="card"><h3 data-i18n="f3t">주행 정보(SEI) 표시</h3><p data-i18n="f3d">기어·속도·브레이크·가속·방향지시등·조향각·오토파일럿 상태를 영상과 동기화해 보여 줍니다.</p></div>
+      <div class="card"><h3 data-i18n="f4t">경로 지도</h3><p data-i18n="f4d">영상의 위치 정보로 주행 경로를 지도에 그리고, 재생에 맞춰 현재 위치가 움직입니다.</p></div>
+      <div class="card"><h3 data-i18n="f5t">6캠 격자 · 전체화면</h3><p data-i18n="f5d">최대 6개 카메라를 동시에 재생하고, 가로 전체화면에서는 지도와 주행 정보를 작은 창으로 띄웁니다. iPad는 분할 화면을 지원합니다.</p></div>
+      <div class="card"><h3 data-i18n="f6t">내 기기 안에서만 처리</h3><p data-i18n="f6d">영상과 위치 정보는 기기 안에서만 처리되며 서버로 전송되지 않습니다.</p></div>
     </div>
   </section>
 
   <section>
-    <h2 data-ko="이렇게 사용하세요" data-en="How it works">이렇게 사용하세요</h2>
+    <h2 data-i18n="how">이렇게 사용하세요</h2>
     <ol class="steps">
-      <li data-ko="<b>영상 가져오기</b> — 차에서 뺀 USB의 TeslaCam 폴더를 파일 앱(또는 Android 파일)으로 기기에 저장합니다." data-en="<b>Load clips</b> — save the TeslaCam folder from your car's USB drive to your phone with the Files app."><b>영상 가져오기</b> — 차에서 뺀 USB의 TeslaCam 폴더를 파일 앱(또는 Android 파일)으로 기기에 저장합니다.</li>
-      <li data-ko="<b>보기</b> — 뷰어 탭에서 재생하고, 카메라 전환·6캠 격자·지도를 확인합니다." data-en="<b>Watch</b> — play in the Viewer tab and use camera switching, the grid and the map."><b>보기</b> — 뷰어 탭에서 재생하고, 카메라 전환·6캠 격자·지도를 확인합니다.</li>
-      <li data-ko="<b>저장</b> — 인코딩 탭에서 시각·주행 정보를 새겨 사진 앱(또는 다운로드 폴더)에 저장합니다." data-en="<b>Save</b> — in the Encoding tab, burn in time and driving data and save to Photos (or the Download folder)."><b>저장</b> — 인코딩 탭에서 시각·주행 정보를 새겨 사진 앱(또는 다운로드 폴더)에 저장합니다.</li>
+      <li data-i18n="s1"><b>영상 가져오기</b> — 차에서 뺀 USB의 TeslaCam 폴더를 파일 앱(또는 Android 파일)으로 기기에 저장합니다.</li>
+      <li data-i18n="s2"><b>보기</b> — 뷰어 탭에서 재생하고, 카메라 전환·6캠 격자·지도를 확인합니다.</li>
+      <li data-i18n="s3"><b>저장</b> — 인코딩 탭에서 시각·주행 정보를 새겨 사진 앱(또는 다운로드 폴더)에 저장합니다.</li>
     </ol>
-    <p class="free" style="text-align:center;margin-top:16px" data-ko="주행 정보는 테슬라가 블랙박스 영상에 기록한 데이터를 읽어 표시합니다. 테슬라 앱이나 메신저로 받은 영상에는 포함되지 않을 수 있습니다." data-en="Driving data is read from what Tesla records in the dashcam video; clips received through the Tesla app or messengers may not include it.">주행 정보는 테슬라가 블랙박스 영상에 기록한 데이터를 읽어 표시합니다. 테슬라 앱이나 메신저로 받은 영상에는 포함되지 않을 수 있습니다.</p>
+    <p class="free" style="text-align:center;margin-top:16px" data-i18n="note">주행 정보는 테슬라가 블랙박스 영상에 기록한 데이터를 읽어 표시합니다. 테슬라 앱이나 메신저로 받은 영상에는 포함되지 않을 수 있습니다.</p>
   </section>
 
   <section style="text-align:center">
@@ -98,14 +113,180 @@
 
   <footer>
     <div>
-      <a href="https://egg2dev.github.io/eggdev-page/privacy_policy.html" data-ko="개인정보 처리방침" data-en="Privacy Policy">개인정보 처리방침</a>
-      <a href="mailto:egg2dev@gmail.com" data-ko="문의" data-en="Contact">문의</a>
+      <a href="https://egg2dev.github.io/eggdev-page/privacy_policy.html" data-i18n="privacy">개인정보 처리방침</a>
+      <a href="mailto:egg2dev@gmail.com" data-i18n="contact">문의</a>
     </div>
     <div style="margin-top:10px">© 2026 코드주주</div>
   </footer>
 </div>
 <script>
 (function () {
+  var T = {
+    ko: {
+      desc:"테슬라 블랙박스 영상을 속도·기어·조향 같은 주행 정보와 함께 보고, 시각과 주행 정보를 영상에 새겨 저장하세요. 6개 카메라를 한 화면에서.",
+      free:"무료 · 광고 제거는 한 번 결제로", shots:"화면 미리보기",
+      c_viewer:"뷰어 · 주행 정보", c_map:"경로 지도", c_grid:"6캠 동시 보기", c_full:"가로 전체화면", c_enc:"타임스탬프 인코딩", c_ipad:"iPad 분할 화면",
+      feats:"주요 기능",
+      f1t:"시각·주행 정보 영상 저장", f1d:"촬영 시각과 속도·기어·조향각·방향지시등 등을 영상에 새겨 새 영상으로 저장하고 바로 공유합니다.",
+      f2t:"멀티 카메라 뷰어", f2d:"전방·후방·좌우 리피터·필러 카메라를 빠르게 전환하고, 시간대 탭으로 원하는 순간으로 이동합니다.",
+      f3t:"주행 정보(SEI) 표시", f3d:"기어·속도·브레이크·가속·방향지시등·조향각·오토파일럿 상태를 영상과 동기화해 보여 줍니다.",
+      f4t:"경로 지도", f4d:"영상의 위치 정보로 주행 경로를 지도에 그리고, 재생에 맞춰 현재 위치가 움직입니다.",
+      f5t:"6캠 격자 · 전체화면", f5d:"최대 6개 카메라를 동시에 재생하고, 가로 전체화면에서는 지도와 주행 정보를 작은 창으로 띄웁니다. iPad는 분할 화면을 지원합니다.",
+      f6t:"내 기기 안에서만 처리", f6d:"영상과 위치 정보는 기기 안에서만 처리되며 서버로 전송되지 않습니다.",
+      how:"이렇게 사용하세요",
+      s1:"<b>영상 가져오기</b> — 차에서 뺀 USB의 TeslaCam 폴더를 파일 앱(또는 Android 파일)으로 기기에 저장합니다.",
+      s2:"<b>보기</b> — 뷰어 탭에서 재생하고, 카메라 전환·6캠 격자·지도를 확인합니다.",
+      s3:"<b>저장</b> — 인코딩 탭에서 시각·주행 정보를 새겨 사진 앱(또는 다운로드 폴더)에 저장합니다.",
+      note:"주행 정보는 테슬라가 블랙박스 영상에 기록한 데이터를 읽어 표시합니다. 테슬라 앱이나 메신저로 받은 영상에는 포함되지 않을 수 있습니다.",
+      privacy:"개인정보 처리방침", contact:"문의"
+    },
+    en: {
+      desc:"Watch Tesla dashcam clips together with speed, gear and steering data, and save videos with the time and driving data burned in. All 6 cameras on one screen.",
+      free:"Free · one-time purchase removes ads", shots:"Screenshots",
+      c_viewer:"Viewer · driving data", c_map:"Route map", c_grid:"6-camera grid", c_full:"Landscape fullscreen", c_enc:"Timestamp encoding", c_ipad:"iPad split view",
+      feats:"Features",
+      f1t:"Save with time and driving data", f1d:"Burn the capture time, speed, gear, steering angle and turn signals into a new video, ready to share.",
+      f2t:"Multi-camera viewer", f2d:"Switch between front, rear, repeater and pillar cameras, and jump to any moment with time tabs.",
+      f3t:"Driving data (SEI)", f3d:"Gear, speed, brake, accelerator, turn signals, steering angle and Autopilot, in sync with the video.",
+      f4t:"Route map", f4d:"Draws the driving route on a map from the video's location data, following playback.",
+      f5t:"6-camera grid · fullscreen", f5d:"Play up to 6 cameras at once; in landscape fullscreen the map and data float in small panels. iPad has a split layout.",
+      f6t:"Processed on your device", f6d:"Videos and location data are processed on your device only and never uploaded.",
+      how:"How it works",
+      s1:"<b>Load clips</b> — save the TeslaCam folder from your car's USB drive to your phone with the Files app.",
+      s2:"<b>Watch</b> — play in the Viewer tab and use camera switching, the grid and the map.",
+      s3:"<b>Save</b> — in the Encoding tab, burn in time and driving data and save to Photos (or the Download folder).",
+      note:"Driving data is read from what Tesla records in the dashcam video; clips received through the Tesla app or messengers may not include it.",
+      privacy:"Privacy Policy", contact:"Contact"
+    },
+    de: {
+      desc:"Sieh dir Tesla-Dashcam-Videos zusammen mit Fahrdaten wie Geschwindigkeit, Gang und Lenkwinkel an und speichere Videos mit eingebrannter Zeit und Fahrdaten. Alle 6 Kameras auf einem Bildschirm.",
+      free:"Kostenlos · ein einmaliger Kauf entfernt die Werbung", shots:"Bildschirmfotos",
+      c_viewer:"Viewer · Fahrdaten", c_map:"Routenkarte", c_grid:"6-Kamera-Raster", c_full:"Vollbild im Querformat", c_enc:"Zeitstempel-Kodierung", c_ipad:"iPad-Splitansicht",
+      feats:"Funktionen",
+      f1t:"Mit Zeit und Fahrdaten speichern", f1d:"Brenne Aufnahmezeit, Geschwindigkeit, Gang, Lenkwinkel und Blinker in ein neues Video ein und teile es direkt.",
+      f2t:"Multikamera-Viewer", f2d:"Wechsle schnell zwischen Front-, Heck-, Seiten- und Säulenkameras und springe über Zeit-Tabs zum gewünschten Moment.",
+      f3t:"Fahrdaten (SEI)", f3d:"Gang, Geschwindigkeit, Bremse, Gaspedal, Blinker, Lenkwinkel und Autopilot synchron zum Video.",
+      f4t:"Routenkarte", f4d:"Zeichnet die Route aus den Standortdaten des Videos auf die Karte und folgt der Wiedergabe.",
+      f5t:"6-Kamera-Raster · Vollbild", f5d:"Bis zu 6 Kameras gleichzeitig; im Querformat-Vollbild schweben Karte und Daten in kleinen Fenstern. Auf dem iPad gibt es eine geteilte Ansicht.",
+      f6t:"Nur auf deinem Gerät verarbeitet", f6d:"Videos und Standortdaten werden nur auf deinem Gerät verarbeitet und nie hochgeladen.",
+      how:"So funktioniert's",
+      s1:"<b>Aufnahmen laden</b> — Speichere den TeslaCam-Ordner vom USB-Stick deines Autos mit der Dateien-App auf dem Gerät.",
+      s2:"<b>Ansehen</b> — Wiedergabe im Viewer-Tab, mit Kamerawechsel, Raster und Karte.",
+      s3:"<b>Speichern</b> — Im Kodierungs-Tab Zeit und Fahrdaten einbrennen und in Fotos (bzw. im Download-Ordner) speichern.",
+      note:"Die Fahrdaten werden aus den Daten gelesen, die Tesla in die Dashcam-Videos schreibt. Videos aus der Tesla-App oder Messengern enthalten sie eventuell nicht.",
+      privacy:"Datenschutzerklärung", contact:"Kontakt"
+    },
+    es: {
+      desc:"Mira los vídeos de la dashcam de Tesla junto con datos de conducción como velocidad, marcha y dirección, y guárdalos con la hora y los datos grabados. Las 6 cámaras en una sola pantalla.",
+      free:"Gratis · una compra única elimina los anuncios", shots:"Capturas de pantalla",
+      c_viewer:"Visor · datos de conducción", c_map:"Mapa del recorrido", c_grid:"Cuadrícula de 6 cámaras", c_full:"Pantalla completa horizontal", c_enc:"Codificación con marca de tiempo", c_ipad:"Vista dividida en iPad",
+      feats:"Funciones",
+      f1t:"Guardar con hora y datos de conducción", f1d:"Graba la hora, la velocidad, la marcha, el ángulo de dirección y los intermitentes en un vídeo nuevo, listo para compartir.",
+      f2t:"Visor multicámara", f2d:"Cambia entre las cámaras frontal, trasera, repetidoras y de pilar, y salta a cualquier momento con las pestañas de hora.",
+      f3t:"Datos de conducción (SEI)", f3d:"Marcha, velocidad, freno, acelerador, intermitentes, ángulo de dirección y Autopilot, sincronizados con el vídeo.",
+      f4t:"Mapa del recorrido", f4d:"Dibuja el recorrido en el mapa con los datos de ubicación del vídeo y sigue la reproducción.",
+      f5t:"Cuadrícula de 6 cámaras · pantalla completa", f5d:"Reproduce hasta 6 cámaras a la vez; en pantalla completa horizontal, el mapa y los datos flotan en paneles pequeños. El iPad tiene vista dividida.",
+      f6t:"Procesado solo en tu dispositivo", f6d:"Los vídeos y los datos de ubicación se procesan solo en tu dispositivo y nunca se envían.",
+      how:"Cómo funciona",
+      s1:"<b>Cargar vídeos</b> — guarda la carpeta TeslaCam de la unidad USB de tu coche en el dispositivo con la app Archivos.",
+      s2:"<b>Ver</b> — reproduce en la pestaña Visor y usa el cambio de cámara, la cuadrícula y el mapa.",
+      s3:"<b>Guardar</b> — en la pestaña Codificación, incrusta la hora y los datos de conducción y guarda en Fotos (o en la carpeta Descargas).",
+      note:"Los datos de conducción se leen de lo que Tesla graba en los vídeos de la dashcam; es posible que los vídeos recibidos por la app de Tesla o por mensajería no los incluyan.",
+      privacy:"Política de privacidad", contact:"Contacto"
+    },
+    fr: {
+      desc:"Regardez les vidéos de la dashcam Tesla avec les données de conduite (vitesse, rapport, direction) et enregistrez-les avec l'heure et les données incrustées. Les 6 caméras sur un seul écran.",
+      free:"Gratuit · un achat unique supprime les publicités", shots:"Captures d'écran",
+      c_viewer:"Visionneuse · données de conduite", c_map:"Carte du trajet", c_grid:"Grille de 6 caméras", c_full:"Plein écran en paysage", c_enc:"Encodage avec horodatage", c_ipad:"Affichage divisé sur iPad",
+      feats:"Fonctionnalités",
+      f1t:"Enregistrer avec l'heure et les données", f1d:"Incrustez l'heure, la vitesse, le rapport, l'angle de braquage et les clignotants dans une nouvelle vidéo, prête à partager.",
+      f2t:"Visionneuse multi-caméras", f2d:"Passez entre les caméras avant, arrière, rétroviseurs et montants, et accédez au moment voulu grâce aux onglets horaires.",
+      f3t:"Données de conduite (SEI)", f3d:"Rapport, vitesse, frein, accélérateur, clignotants, angle de braquage et Autopilot, synchronisés avec la vidéo.",
+      f4t:"Carte du trajet", f4d:"Trace le trajet sur la carte à partir des données de position de la vidéo et suit la lecture.",
+      f5t:"Grille de 6 caméras · plein écran", f5d:"Lisez jusqu'à 6 caméras en même temps ; en plein écran paysage, la carte et les données flottent dans de petites fenêtres. L'iPad propose un affichage divisé.",
+      f6t:"Traité uniquement sur votre appareil", f6d:"Les vidéos et les données de position sont traitées uniquement sur votre appareil et ne sont jamais envoyées.",
+      how:"Comment ça marche",
+      s1:"<b>Charger les vidéos</b> — enregistrez le dossier TeslaCam de la clé USB de votre voiture sur l'appareil avec l'app Fichiers.",
+      s2:"<b>Regarder</b> — lisez dans l'onglet Visionneuse, avec changement de caméra, grille et carte.",
+      s3:"<b>Enregistrer</b> — dans l'onglet Encodage, incrustez l'heure et les données de conduite et enregistrez dans Photos (ou le dossier Téléchargements).",
+      note:"Les données de conduite sont lues à partir de ce que Tesla enregistre dans les vidéos de la dashcam ; les vidéos reçues via l'app Tesla ou une messagerie peuvent ne pas en contenir.",
+      privacy:"Politique de confidentialité", contact:"Contact"
+    },
+    ja: {
+      desc:"Teslaのドライブレコーダー映像を、速度・ギア・ステアリングなどの走行情報と一緒に確認し、時刻と走行情報を焼き込んで保存できます。6台のカメラを1画面で。",
+      free:"無料 · 一度の購入で広告を非表示", shots:"スクリーンショット",
+      c_viewer:"ビューア · 走行情報", c_map:"ルートマップ", c_grid:"6カメラのグリッド", c_full:"横向き全画面", c_enc:"タイムスタンプ書き込み", c_ipad:"iPad分割表示",
+      feats:"主な機能",
+      f1t:"時刻・走行情報を入れて保存", f1d:"撮影時刻・速度・ギア・ステアリング角・ウインカーなどを映像に焼き込み、新しい動画としてそのまま共有できます。",
+      f2t:"マルチカメラビューア", f2d:"前方・後方・左右リピーター・ピラーカメラをすばやく切り替え、時間帯タブで見たい場面へ移動できます。",
+      f3t:"走行情報(SEI)の表示", f3d:"ギア・速度・ブレーキ・アクセル・ウインカー・ステアリング角・オートパイロットの状態を映像と同期して表示します。",
+      f4t:"ルートマップ", f4d:"映像の位置情報から走行ルートを地図に描き、再生に合わせて現在位置が動きます。",
+      f5t:"6カメラのグリッド · 全画面", f5d:"最大6台のカメラを同時に再生でき、横向き全画面では地図と走行情報を小さなウィンドウで表示します。iPadでは分割表示に対応します。",
+      f6t:"端末内だけで処理", f6d:"映像と位置情報は端末内でのみ処理され、外部に送信されません。",
+      how:"使い方",
+      s1:"<b>映像を読み込む</b> — 車から外したUSBのTeslaCamフォルダを、ファイルAppで端末に保存します。",
+      s2:"<b>見る</b> — ビューアタブで再生し、カメラ切り替え・グリッド・地図を確認します。",
+      s3:"<b>保存する</b> — エンコードタブで時刻と走行情報を焼き込み、写真App(またはダウンロードフォルダ)に保存します。",
+      note:"走行情報は、Teslaがドライブレコーダー映像に記録したデータを読み取って表示します。Teslaアプリやメッセンジャーで受け取った映像には含まれていない場合があります。",
+      privacy:"プライバシーポリシー", contact:"お問い合わせ"
+    },
+    pt: {
+      desc:"Veja os vídeos da dashcam da Tesla com dados de condução como velocidade, mudança e direção, e guarde-os com a hora e os dados gravados. As 6 câmaras num só ecrã.",
+      free:"Grátis · uma compra única remove os anúncios", shots:"Capturas de ecrã",
+      c_viewer:"Visualizador · dados de condução", c_map:"Mapa do percurso", c_grid:"Grelha de 6 câmaras", c_full:"Ecrã inteiro na horizontal", c_enc:"Codificação com marca de tempo", c_ipad:"Vista dividida no iPad",
+      feats:"Funcionalidades",
+      f1t:"Guardar com hora e dados de condução", f1d:"Grave a hora, a velocidade, a mudança, o ângulo de direção e os piscas num novo vídeo, pronto a partilhar.",
+      f2t:"Visualizador multicâmara", f2d:"Alterne entre as câmaras frontal, traseira, retrovisores e pilares, e vá ao momento certo com os separadores por hora.",
+      f3t:"Dados de condução (SEI)", f3d:"Mudança, velocidade, travão, acelerador, piscas, ângulo de direção e Autopilot, sincronizados com o vídeo.",
+      f4t:"Mapa do percurso", f4d:"Desenha o percurso no mapa com os dados de localização do vídeo e acompanha a reprodução.",
+      f5t:"Grelha de 6 câmaras · ecrã inteiro", f5d:"Reproduza até 6 câmaras em simultâneo; em ecrã inteiro na horizontal, o mapa e os dados flutuam em painéis pequenos. O iPad tem vista dividida.",
+      f6t:"Processado apenas no seu dispositivo", f6d:"Os vídeos e os dados de localização são processados apenas no seu dispositivo e nunca são enviados.",
+      how:"Como funciona",
+      s1:"<b>Carregar vídeos</b> — guarde a pasta TeslaCam da unidade USB do seu carro no dispositivo com a app Ficheiros.",
+      s2:"<b>Ver</b> — reproduza no separador Visualizador, com mudança de câmara, grelha e mapa.",
+      s3:"<b>Guardar</b> — no separador Codificação, grave a hora e os dados de condução e guarde em Fotografias (ou na pasta Transferências).",
+      note:"Os dados de condução são lidos do que a Tesla grava nos vídeos da dashcam; os vídeos recebidos pela app da Tesla ou por mensagens podem não os incluir.",
+      privacy:"Política de privacidade", contact:"Contacto"
+    },
+    "zh-Hans": {
+      desc:"查看 Tesla 行车记录仪视频，同步显示速度、档位、转向等行驶信息，并将时间和行驶信息烧录进视频保存。6个摄像头一屏同看。",
+      free:"免费 · 一次购买即可去除广告", shots:"应用截图",
+      c_viewer:"查看器 · 行驶信息", c_map:"路线地图", c_grid:"6摄像头网格", c_full:"横屏全屏", c_enc:"时间戳编码", c_ipad:"iPad 分屏",
+      feats:"主要功能",
+      f1t:"保存带时间和行驶信息的视频", f1d:"将拍摄时间、速度、档位、转向角和转向灯烧录进新视频，可直接分享。",
+      f2t:"多摄像头查看器", f2d:"在前、后、左右后视镜和立柱摄像头之间快速切换，并通过时间标签跳到想看的时刻。",
+      f3t:"行驶信息（SEI）显示", f3d:"档位、速度、刹车、油门、转向灯、转向角和 Autopilot 状态与视频同步显示。",
+      f4t:"路线地图", f4d:"根据视频中的位置信息在地图上绘制行驶路线，并随播放移动当前位置。",
+      f5t:"6摄像头网格 · 全屏", f5d:"最多同时播放 6 个摄像头；横屏全屏时，地图和行驶信息以小窗显示。iPad 支持分屏。",
+      f6t:"仅在你的设备上处理", f6d:"视频和位置信息仅在你的设备上处理，不会上传。",
+      how:"使用方法",
+      s1:"<b>加载视频</b> — 用“文件”App 把车上 U 盘中的 TeslaCam 文件夹保存到设备。",
+      s2:"<b>观看</b> — 在“查看器”标签中播放，切换摄像头，查看网格和地图。",
+      s3:"<b>保存</b> — 在“编码”标签中烧录时间和行驶信息，并保存到“照片”（或下载文件夹）。",
+      note:"行驶信息读取自 Tesla 记录在行车记录仪视频中的数据；通过 Tesla App 或聊天软件收到的视频可能不包含这些数据。",
+      privacy:"隐私政策", contact:"联系我们"
+    },
+    "zh-Hant": {
+      desc:"檢視 Tesla 行車記錄器影片，同步顯示速度、檔位、轉向等行駛資訊，並將時間與行駛資訊燒錄進影片儲存。6個鏡頭同一畫面觀看。",
+      free:"免費 · 一次購買即可移除廣告", shots:"App 截圖",
+      c_viewer:"檢視器 · 行駛資訊", c_map:"路線地圖", c_grid:"6鏡頭格狀", c_full:"橫向全螢幕", c_enc:"時間戳記編碼", c_ipad:"iPad 分割畫面",
+      feats:"主要功能",
+      f1t:"儲存含時間與行駛資訊的影片", f1d:"將拍攝時間、速度、檔位、轉向角與方向燈燒錄進新影片，可直接分享。",
+      f2t:"多鏡頭檢視器", f2d:"在前、後、左右後視鏡與立柱鏡頭之間快速切換，並透過時間分頁跳到想看的時刻。",
+      f3t:"行駛資訊(SEI)顯示", f3d:"檔位、速度、煞車、油門、方向燈、轉向角與 Autopilot 狀態與影片同步顯示。",
+      f4t:"路線地圖", f4d:"根據影片中的位置資訊在地圖上繪製行駛路線，並隨播放移動目前位置。",
+      f5t:"6鏡頭格狀 · 全螢幕", f5d:"最多同時播放 6 個鏡頭；橫向全螢幕時，地圖與行駛資訊以小視窗顯示。iPad 支援分割畫面。",
+      f6t:"僅在你的裝置上處理", f6d:"影片與位置資訊僅在你的裝置上處理，不會上傳。",
+      how:"使用方式",
+      s1:"<b>載入影片</b> — 用「檔案」App 把車上 USB 隨身碟中的 TeslaCam 資料夾儲存到裝置。",
+      s2:"<b>觀看</b> — 在「檢視器」分頁播放，切換鏡頭，查看格狀與地圖。",
+      s3:"<b>儲存</b> — 在「編碼」分頁燒錄時間與行駛資訊，並儲存到「照片」(或下載資料夾)。",
+      note:"行駛資訊讀取自 Tesla 記錄在行車記錄器影片中的資料；透過 Tesla App 或通訊軟體收到的影片可能不含這些資料。",
+      privacy:"隱私權政策", contact:"聯絡我們"
+    }
+  };
+  var HTML_LANG = { ko:"ko", en:"en", de:"de", es:"es", fr:"fr", ja:"ja", pt:"pt-PT", "zh-Hans":"zh-Hans", "zh-Hant":"zh-Hant" };
+
   var ua = navigator.userAgent || "";
   // iPadOS는 Mac처럼 보이므로 터치 지점 수로 구분한다
   var isIOS = /iPhone|iPad|iPod/.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
@@ -119,15 +300,47 @@
     var hide = isIOS ? ["android", "android2"] : ["ios", "ios2"];
     for (var h = 0; h < hide.length; h++) document.getElementById(hide[h]).style.display = "none";
   }
-  var lang = (navigator.language || "").toLowerCase();
-  if (lang.indexOf("ko") !== 0) {
-    document.documentElement.lang = "en";
-    var nodes = document.querySelectorAll("[data-en]");
-    for (var i = 0; i < nodes.length; i++) nodes[i].innerHTML = nodes[i].getAttribute("data-en");
-  } else {
-    var ko = document.querySelectorAll("[data-ko]");
-    for (var j = 0; j < ko.length; j++) ko[j].innerHTML = ko[j].getAttribute("data-ko");
+
+  function detect() {
+    var q = /[?&]lang=([\w-]+)/.exec(location.search);
+    var saved = null;
+    try { saved = localStorage.getItem("lang"); } catch (e) {}
+    var cands = [];
+    if (q) cands.push(q[1]);
+    if (saved) cands.push(saved);
+    var nav = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < nav.length; i++) cands.push(nav[i]);
+    for (var c = 0; c < cands.length; c++) {
+      var l = String(cands[c]).toLowerCase();
+      if (l.indexOf("zh") === 0) return /tw|hk|mo|hant/.test(l) ? "zh-Hant" : "zh-Hans";
+      var base = l.split("-")[0];
+      if (T[base]) return base;
+    }
+    return "en";
   }
+
+  function apply(lang) {
+    var d = T[lang] || T.en;
+    document.documentElement.lang = HTML_LANG[lang] || "en";
+    var nodes = document.querySelectorAll("[data-i18n]");
+    for (var i = 0; i < nodes.length; i++) {
+      var v = d[nodes[i].getAttribute("data-i18n")];
+      if (v) nodes[i].innerHTML = v;
+    }
+    var figs = document.querySelectorAll(".shot");
+    for (var f = 0; f < figs.length; f++) {
+      var cap = figs[f].querySelector("figcaption");
+      figs[f].querySelector("img").alt = cap ? cap.textContent : "";
+    }
+    var sel = document.getElementById("lang");
+    if (sel) sel.value = lang;
+  }
+
+  apply(detect());
+  document.getElementById("lang").addEventListener("change", function (e) {
+    try { localStorage.setItem("lang", e.target.value); } catch (err) {}
+    apply(e.target.value);
+  });
 })();
 </script>
 </body>
